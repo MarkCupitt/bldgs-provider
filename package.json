@@ -1,0 +1,24 @@
+{
+  "name": "bldgs-provider",
+  "private": false,
+  "description": "BLDGS Provider",
+  "version": "0.1.0",
+  "homepage": "http://bld.gs",
+  "author": "@osmbuildings",
+  "contributors": [],
+  "maintainers": [
+    "Jan Marsch <jama@keks.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:osmbuildings/bldgs-provider.git"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-uglify": "~0.4.0"
+  },
+  "optionalDependencies": {}
+}
