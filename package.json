@@ -4,11 +4,9 @@
   "description": "BLDGS Provider",
   "version": "0.1.0",
   "homepage": "http://bld.gs",
-  "author": "@osmbuildings",
+  "author": "@kekscom",
   "contributors": [],
-  "maintainers": [
-    "Jan Marsch <jama@keks.com>"
-  ],
+  "maintainers": [],
   "repository": {
     "type": "git",
     "url": "git@bitbucket.org:osmbuildings/bldgs-provider.git"
