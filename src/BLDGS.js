@@ -23,11 +23,11 @@ var BLDGS = (function() {
 
   proto.updateBBox = function(x, y, w, h, zoom, callback) {
     var
-  //    realTileSize = zoom > this._fixedZoom ? this._tileSize <<(zoom-this._fixedZoom) : this._tileSize >>(this._fixedZoom-zoom),
-  //    minX = x/realTileSize <<0,
-  //    minY = y/realTileSize <<0,
-  //    maxX = Math.ceil((x+w)/realTileSize),
-  //    maxY = Math.ceil((y+h)/realTileSize),
+      realTileSize = zoom > this._fixedZoom ? this._tileSize <<(zoom-this._fixedZoom) : this._tileSize >>(this._fixedZoom-zoom),
+      minX = x/realTileSize <<0,
+      minY = y/realTileSize <<0,
+      maxX = Math.ceil((x+w)/realTileSize),
+      maxY = Math.ceil((y+h)/realTileSize),
       x, y;
 
     for (y = minY; y <= maxY; y++) {
