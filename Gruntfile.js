@@ -6,10 +6,8 @@ module.exports = function(grunt) {
     concat: {
       options: {
         separator: '\n',
-//        banner:   '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd hh:ii:ss") %> */\n'+
-        banner:
-          '(function(window) { \'use strict\'\n',
-        footer: '\n  window.BLDGS = BLDGS;\n}(this));'
+        banner: '(function(window) { \'use strict\'\n\n',
+        footer: '\nwindow.BLDGS = BLDGS; }(this));'
       },
       dist: {
         src: grunt.file.readJSON('files.json'),

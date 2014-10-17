@@ -1,10 +1,10 @@
 {
   "name": "bldgs-provider",
   "private": false,
-  "description": "BLDGS Provider",
+  "description": "BLDGS data provider",
   "version": "0.1.0",
   "homepage": "http://bld.gs",
-  "author": "@kekscom",
+  "author": "@osmbuildings",
   "contributors": [],
   "maintainers": [],
   "repository": {
