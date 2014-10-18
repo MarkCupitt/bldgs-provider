@@ -6,8 +6,8 @@ module.exports = function(grunt) {
     concat: {
       options: {
         separator: '\n',
-        banner: '(function(window) { \'use strict\'\n\n',
-        footer: '\nwindow.BLDGS = BLDGS; }(this));'
+        banner: 'var BLDGS = (function(window) { \'use strict\';\n\n',
+        footer: '\nreturn BLDGS; }(this));'
       },
       dist: {
         src: grunt.file.readJSON('files.json'),

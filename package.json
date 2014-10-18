@@ -9,7 +9,7 @@
   "maintainers": [],
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:osmbuildings/bldgs-provider.git"
+    "url": "git@github.com:OSMBuildings/bldgs-provider.git"
   },
   "scripts": {},
   "dependencies": {},

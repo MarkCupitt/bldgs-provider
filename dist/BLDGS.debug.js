@@ -1,4 +1,4 @@
-(function(window) { 'use strict'
+var BLDGS = (function(window) { 'use strict';
 
 var cache = {
   data: {},
@@ -109,4 +109,4 @@ proto.getBBox = function(n, e, s, w, callback) {
   return loadJSON(url, callback);
 };
 
-window.BLDGS = BLDGS; }(this));
+return BLDGS; }(this));

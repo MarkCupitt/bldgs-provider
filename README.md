@@ -25,15 +25,15 @@ Constructor Options
 
 Key | Type | Description
 --- | --- | ---
-key | String | Your BLDGS key (Optional
-cacheSize | Number | Response cache size in bytes, 1 MB by default
+key | String | Your BLDGS key (optional)
+cacheSize | Number | Cache size in bytes, 1 MB by default
 
 Static | Value | Description
 --- | --- | ---
 TILE_SIZE | Integer | 256
-ATTRIBUTION | HTML | 'Data Service &copy; <a href="http://bld.gs">BLDGS</a>'
+ATTRIBUTION | HTML | 'Data Service &copy; &lt;a href="http://bld.gs"&gt;BLDGS&lt;/a&gt;'
 
-All Methods return the unterlying XHR object in order to cancel requests.
+All methods return the native XHR object in order to cancel requests.<br>
 Callback functions are called with a result JSON object.
 
 Method | Parameters | Description
