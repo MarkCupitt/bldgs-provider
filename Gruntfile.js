@@ -1,25 +1,28 @@
+
 module.exports = function(grunt) {
 
   grunt.initConfig({
+    product: 'BLDGS',
+
     pkg: grunt.file.readJSON('package.json'),
 
     concat: {
       options: {
         separator: '\n',
-        banner: 'var BLDGS = (function(window) { \'use strict\';\n\n',
-        footer: '\nreturn BLDGS; }(this));'
+        banner: 'var <%=product%> = (function(window) {\n\n',
+        footer: '\nreturn <%=product%>; }(this));'
       },
       dist: {
         src: grunt.file.readJSON('files.json'),
-        dest:  'dist/BLDGS.debug.js'
+        dest:  'dist/<%=product%>.debug.js'
       }
     },
 
     uglify: {
       options: {},
       build: {
-        src: 'dist/BLDGS.debug.js',
-        dest: 'dist/BLDGS.js'
+        src: 'dist/<%=product%>.debug.js',
+        dest: 'dist/<%=product%>.js'
       }
     }
   });

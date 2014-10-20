@@ -7,7 +7,7 @@ function BLDGS(options) {
   if (options.cacheSize !== undefined) {
     cache.setSize(options.cacheSize);
   }
-};
+}
 
 BLDGS.TILE_SIZE = 256;
 BLDGS.ATTRIBUTION = 'Data Service &copy; <a href="http://bld.gs">BLDGS</a>';

@@ -1,4 +1,4 @@
-var BLDGS = (function(window) { 'use strict';
+var BLDGS = (function(window) {
 
 var cache = {
   data: {},
@@ -87,7 +87,7 @@ function BLDGS(options) {
   if (options.cacheSize !== undefined) {
     cache.setSize(options.cacheSize);
   }
-};
+}
 
 BLDGS.TILE_SIZE = 256;
 BLDGS.ATTRIBUTION = 'Data Service &copy; <a href="http://bld.gs">BLDGS</a>';
