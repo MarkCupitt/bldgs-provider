@@ -25,7 +25,6 @@ var cache = {
   },
 
   purge: function() {
-
     setTimeout(function() {
       while (cache.totalSize > cache.maxSize) {
         var item = cache.index.shift();
@@ -45,7 +44,9 @@ var cache = {
 function loadJSON(url, callback) {
   if (cache.has(url)) {
     if (callback) {
-      callback(cache.get(url));
+      setTimeout(function() {
+        callback(cache.get(url));
+      }, 0);
     }
     return;
   }
