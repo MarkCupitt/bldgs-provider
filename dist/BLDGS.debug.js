@@ -1,58 +1,6 @@
 var BLDGS = (function(window) {
 
-var cache = {
-  data: {},
-  index: [],
-  totalSize: 0,
-  maxSize: 1024*1024, // 1MB
-
-  setSize: function(maxSize) {
-    this.maxSize = maxSize;
-  },
-
-  set: function(key, value) {
-    this.data[key] = value;
-    var size = (''+ value).length;
-    this.index.push({ key: key, size: size });
-    this.totalSize += size;
-    this.purge();
-  },
-
-  get: function(key) {
-    return this.data[key];
-  },
-
-  has: function(key) {
-    return this.data[key] !== undefined;
-  },
-
-  purge: function() {
-    setTimeout(function() {
-      while (cache.totalSize > cache.maxSize) {
-        var item = cache.index.shift();
-        cache.totalSize -= item.size;
-        delete cache.data[item.key];
-      }
-    }, 0);
-  },
-
-  clear: function() {
-    this.data = {};
-    this.index = [];
-    this.totalSize = 0;
-  }
-};
-
 function loadJSON(url, callback) {
-  if (cache.has(url)) {
-    if (callback) {
-      setTimeout(function() {
-        callback(cache.get(url));
-      }, 0);
-    }
-    return;
-  }
-
   var req = new XMLHttpRequest();
 
   req.onreadystatechange = function() {
@@ -68,7 +16,6 @@ function loadJSON(url, callback) {
         json = JSON.parse(req.responseText);
       } catch(ex) {}
 
-      cache.set(url, json);
       callback(json);
     }
   };
@@ -89,9 +36,6 @@ function BLDGS(options) {
   this._maxZoom = options.maxZoom || Infinity;
 
   baseURL += (options.key || 'anonymous');
-  if (options.cacheSize !== undefined) {
-    cache.setSize(options.cacheSize);
-  }
 }
 
 BLDGS.TILE_SIZE = 256;
@@ -100,8 +44,7 @@ BLDGS.ATTRIBUTION = 'Data Service &copy; <a href="http://bld.gs">BLDGS</a>';
 BLDGS.prototype = {
   getTile: function(x, y, zoom, callback) {
     if (zoom < this._minZoom || zoom > this._maxZoom) {
-      setTimeout(callback, 0);
-      return { abort: function() {} };
+      return false;
     }
 
     var url = baseURL +'/tile/'+ zoom +'/'+ x +'/'+ y +'.json';
@@ -119,8 +62,7 @@ BLDGS.prototype = {
   },
 
   destroy: function() {
-    // TODO: abort requests
-    cache.clear();
+    // TODO: abort pending requests
   }
 };
 return BLDGS; }(this));

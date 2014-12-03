@@ -8,9 +8,6 @@ function BLDGS(options) {
   this._maxZoom = options.maxZoom || Infinity;
 
   baseURL += (options.key || 'anonymous');
-  if (options.cacheSize !== undefined) {
-    cache.setSize(options.cacheSize);
-  }
 }
 
 BLDGS.TILE_SIZE = 256;
@@ -19,8 +16,7 @@ BLDGS.ATTRIBUTION = 'Data Service &copy; <a href="http://bld.gs">BLDGS</a>';
 BLDGS.prototype = {
   getTile: function(x, y, zoom, callback) {
     if (zoom < this._minZoom || zoom > this._maxZoom) {
-      setTimeout(callback, 0);
-      return { abort: function() {} };
+      return false;
     }
 
     var url = baseURL +'/tile/'+ zoom +'/'+ x +'/'+ y +'.json';
@@ -38,7 +34,6 @@ BLDGS.prototype = {
   },
 
   destroy: function() {
-    // TODO: abort requests
-    cache.clear();
+    // TODO: abort pending requests
   }
 };
