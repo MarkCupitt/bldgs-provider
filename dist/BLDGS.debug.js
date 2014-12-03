@@ -85,7 +85,7 @@ var baseURL = 'http://data.osmbuildings.org/0.2/';
 function BLDGS(options) {
   options = options || {};
 
-  this._minZoom = options.minZoom !== undefined ? options.minZoom : minZoom;
+  this._minZoom = options.minZoom !== undefined ? options.minZoom : 14;
   this._maxZoom = options.maxZoom || Infinity;
 
   baseURL += (options.key || 'anonymous');
