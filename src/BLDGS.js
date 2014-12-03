@@ -20,7 +20,7 @@ BLDGS.prototype = {
   getTile: function(x, y, zoom, callback) {
     if (zoom < this._minZoom || zoom > this._maxZoom) {
       setTimeout(callback, 0);
-      return;
+      return { abort: function() {} };
     }
 
     var url = baseURL +'/tile/'+ zoom +'/'+ x +'/'+ y +'.json';
